@@ -46,7 +46,7 @@ function Faq() {
     event.preventDefault();
 
     axios
-      .post("http://127.0.0.1:8000/api/create-client-page-content", fd)
+      .post("http://3.110.30.19/api/create-client-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Faq Created Successfully");
@@ -61,7 +61,7 @@ function Faq() {
     event.preventDefault();
 
     axios
-      .post("http://127.0.0.1:8000/api/create-client-page-content", fd)
+      .post("http://3.110.30.19/api/create-client-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Faq Updated Successfully");
@@ -72,7 +72,7 @@ function Faq() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://127.0.0.1:8000/api/delete-client-page-content/${id}`)
+      .delete(`http://3.110.30.19/api/delete-client-page-content/${id}`)
       .then(() => {
         const updatedOffers = faq.filter((data) => data.id !== id);
         setFaq(updatedOffers);

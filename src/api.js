@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const upcomingEvents = async () => {
   const response = await axios
-    .get(`http://127.0.0.1:8000/api/get-upcoming-event`)
+    .get(`http://3.110.30.19/api/get-upcoming-event`)
     .then((res) => {
       return res.data;
     });
@@ -11,7 +11,7 @@ export const upcomingEvents = async () => {
 
 export const category = async () => {
   const response = await axios
-    .get(`http://127.0.0.1:8000/api/get-category`)
+    .get(`http://3.110.30.19/api/get-category`)
     .then((res) => {
       return res.data;
     });
@@ -20,7 +20,7 @@ export const category = async () => {
 
 export const testimonial = async () => {
   const response = await axios
-    .get(`http://127.0.0.1:8000/api/get-testimonial`)
+    .get(`http://3.110.30.19/api/get-testimonial`)
     .then((res) => {
       return res.data;
     });
@@ -29,7 +29,7 @@ export const testimonial = async () => {
 
 export const faqs = async () => {
   const response = await axios
-    .get(`http://127.0.0.1:8000/api/get-client-page-content`)
+    .get(`http://3.110.30.19/api/get-client-page-content`)
     .then((res) => {
       return res.data;
     });
@@ -38,7 +38,7 @@ export const faqs = async () => {
 
 export const blogs = async () => {
   const response = await axios
-    .get(`http://127.0.0.1:8000/api/get-blog-page-content`)
+    .get(`http://3.110.30.19/api/get-blog-page-content`)
     .then((res) => {
       return res.data;
     });
@@ -47,7 +47,7 @@ export const blogs = async () => {
 
 export const events = async () => {
   const response = await axios
-    .get(`http://127.0.0.1:8000/api/get-latest_event`)
+    .get(`http://3.110.30.19/api/get-latest_event`)
     .then((res) => {
       return res.data;
     });
@@ -56,7 +56,7 @@ export const events = async () => {
 
 export const offer = async () => {
   const response = await axios
-    .get(`http://127.0.0.1:8000/api/get-offer-page-content`)
+    .get(`http://3.110.30.19/api/get-offer-page-content`)
     .then((res) => {
       return res.data;
     });
@@ -65,7 +65,7 @@ export const offer = async () => {
 
 export const homeBanner = async () => {
   const response = await axios
-    .get(`http://127.0.0.1:8000/api/get-banner-content`)
+    .get(`http://3.110.30.19/api/get-banner-content`)
     .then((res) => {
       return res.data;
     });
@@ -74,7 +74,7 @@ export const homeBanner = async () => {
 
 export const landings = async () => {
   const response = await axios
-    .get(`http://127.0.0.1:8000/api/get-home-page-content`)
+    .get(`http://3.110.30.19/api/get-home-page-content`)
     .then((res) => {
       return res.data;
     });
