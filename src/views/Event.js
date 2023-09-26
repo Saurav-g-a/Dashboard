@@ -46,7 +46,7 @@ function Event() {
     fd.append("latest_event_image", latest_event_image);
     event.preventDefault();
     axios
-      .post("http://3.110.30.19/api/create-latest_event", fd)
+      .post("https://laravel.myrefera.com/api/create-latest_event", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Event Created Successfully");
@@ -62,7 +62,7 @@ function Event() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-latest_event", fd)
+      .post("https://laravel.myrefera.com/api/create-latest_event", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Event Updated Successfully");
@@ -74,7 +74,7 @@ function Event() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://3.110.30.19/api/delete-latest_event/${id}`)
+      .delete(`https://laravel.myrefera.com/api/delete-latest_event/${id}`)
       .then(() => {
         const updatedEvents = event.filter((data) => data.id !== id);
         setEvent(updatedEvents);

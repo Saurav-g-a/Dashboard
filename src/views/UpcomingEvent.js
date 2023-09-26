@@ -41,7 +41,7 @@ function UpcomingEvent() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-upcoming-event", fd)
+      .post("https://laravel.myrefera.com/api/create-upcoming-event", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Upcoming Created Successfully");
@@ -63,7 +63,7 @@ function UpcomingEvent() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-upcoming-event", fd)
+      .post("https://laravel.myrefera.com/api/create-upcoming-event", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Upcoming Updated Successfully");
@@ -73,7 +73,7 @@ function UpcomingEvent() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://3.110.30.19/api/delete-upcoming-event/${id}`)
+      .delete(`https://laravel.myrefera.com/api/delete-upcoming-event/${id}`)
       .then(() => {
         // If the deletion is successful, you can update your state or perform any other necessary actions.
         // For example, you can remove the deleted item from the 'offers' state.

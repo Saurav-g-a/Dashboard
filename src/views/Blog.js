@@ -40,7 +40,7 @@ function Blog() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-blog-page-content", fd)
+      .post("https://laravel.myrefera.com/api/create-blog-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Blog Created Successfully");
@@ -56,7 +56,7 @@ function Blog() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-blog-page-content", fd)
+      .post("https://laravel.myrefera.com/api/create-blog-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Blog Updated Successfully");
@@ -72,7 +72,7 @@ function Blog() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://3.110.30.19/api/delete-blog-page-content/${id}`)
+      .delete(`https://laravel.myrefera.com/api/delete-blog-page-content/${id}`)
       .then(() => {
         // If the deletion is successful, you can update your state or perform any other necessary actions.
         // For example, you can remove the deleted item from the 'offers' state.

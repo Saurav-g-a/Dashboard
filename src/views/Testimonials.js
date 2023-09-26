@@ -40,7 +40,7 @@ function Testimonials() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-testimonial", fd)
+      .post("https://laravel.myrefera.com/api/create-testimonial", fd)
       .then((res) => {
         notify("tr", "Offer Created Successfully");
         console.log(res);
@@ -56,7 +56,7 @@ function Testimonials() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-testimonial", fd)
+      .post("https://laravel.myrefera.com/api/create-testimonial", fd)
       .then((res) => {
         notify("tr", "Offer Updated Successfully");
       });
@@ -65,7 +65,7 @@ function Testimonials() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://3.110.30.19/api/delete-testimonial/${id}`)
+      .delete(`https://laravel.myrefera.com/api/delete-testimonial/${id}`)
       .then(() => {
         const updatedOffers = testimonials.filter((data) => data.id !== id);
         setTestimonials(updatedOffers);

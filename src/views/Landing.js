@@ -38,7 +38,7 @@ function Landing() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-banner-content", fd)
+      .post("https://laravel.myrefera.com/api/create-banner-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Banner Updated Successfully");
@@ -60,7 +60,7 @@ function Landing() {
     fd.append("id", 1);
 
     axios
-      .post("http://3.110.30.19/api/create-home-page-content", fd)
+      .post("https://laravel.myrefera.com/api/create-home-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Landing Page Updated Successfully");

@@ -41,7 +41,7 @@ function Category() {
     fd.append("name", name);
     event.preventDefault();
 
-    axios.post("http://3.110.30.19/api/create-category", fd).then((res) => {
+    axios.post("https://laravel.myrefera.com/api/create-category", fd).then((res) => {
       console.log(res);
       notify("tr", "Category Created Successfully");
     });
@@ -53,7 +53,7 @@ function Category() {
     fd.append("id", modal_data["id"]);
     event.preventDefault();
 
-    axios.post("http://3.110.30.19/api/create-category", fd).then((res) => {
+    axios.post("https://laravel.myrefera.com/api/create-category", fd).then((res) => {
       console.log(res);
       notify("tr", "Category Updated Successfully");
       setShow(false);
@@ -64,7 +64,7 @@ function Category() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://3.110.30.19/api/delete-category/${id}`)
+      .delete(`https://laravel.myrefera.com/api/delete-category/${id}`)
       .then(() => {
         const updatedOffers = faq.filter((data) => data.id !== id);
         setFaq(updatedOffers);

@@ -43,7 +43,7 @@ function Offer() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://3.110.30.19/api/delete-offer-page-content/${id}`)
+      .delete(`https://laravel.myrefera.com/api/delete-offer-page-content/${id}`)
       .then(() => {
         const updatedOffers = offers.filter((offer) => offer.id !== id);
         setOffers(updatedOffers);
@@ -87,7 +87,7 @@ function Offer() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-offer-page-content", fd)
+      .post("https://laravel.myrefera.com/api/create-offer-page-content", fd)
       .then((res) => {
         notify("tr");
         console.log(res);
@@ -106,7 +106,7 @@ function Offer() {
     event.preventDefault();
 
     axios
-      .post("http://3.110.30.19/api/create-offer-page-content", fd)
+      .post("https://laravel.myrefera.com/api/create-offer-page-content", fd)
       .then((res) => {
         notify("tr", " Offer Updated Successfully");
         console.log(res);
