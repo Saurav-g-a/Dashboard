@@ -46,7 +46,7 @@ function Faq() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-client-page-content", fd)
+      .post("create-client-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Faq Created Successfully");
@@ -61,7 +61,7 @@ function Faq() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-client-page-content", fd)
+      .post("create-client-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Faq Updated Successfully");
@@ -72,7 +72,7 @@ function Faq() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://laravel.myrefera.com/api/delete-client-page-content/${id}`)
+      .delete(`delete-client-page-content/${id}`)
       .then(() => {
         const updatedOffers = faq.filter((data) => data.id !== id);
         setFaq(updatedOffers);

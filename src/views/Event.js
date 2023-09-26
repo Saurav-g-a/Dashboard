@@ -17,7 +17,10 @@ import pen from "./../assets/img/pen.svg";
 import dele from "./../assets/img/trash-can.svg";
 import NotificationAlert from "react-notification-alert";
 import { events } from "api";
+const API_URL = process.env.REACT_APP_API_URL
+console.log(API_URL)
 
+axios.defaults.baseURL = API_URL
 function Event() {
   
   const [latest_event_title, setLatest_event_title] = useState("");
@@ -46,7 +49,7 @@ function Event() {
     fd.append("latest_event_image", latest_event_image);
     event.preventDefault();
     axios
-      .post("https://laravel.myrefera.com/api/create-latest_event", fd)
+      .post("create-latest_event", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Event Created Successfully");
@@ -62,7 +65,7 @@ function Event() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-latest_event", fd)
+      .post("create-latest_event", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Event Updated Successfully");
@@ -74,7 +77,7 @@ function Event() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://laravel.myrefera.com/api/delete-latest_event/${id}`)
+      .delete(`delete-latest_event/${id}`)
       .then(() => {
         const updatedEvents = event.filter((data) => data.id !== id);
         setEvent(updatedEvents);

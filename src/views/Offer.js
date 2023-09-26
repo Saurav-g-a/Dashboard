@@ -17,6 +17,11 @@ import NotificationAlert from "react-notification-alert";
 import pen from "./../assets/img/pen.svg";
 import dele from "./../assets/img/trash-can.svg";
 import { offer, category } from "api";
+
+const API_URL = process.env.REACT_APP_API_URL
+console.log(API_URL)
+
+axios.defaults.baseURL = API_URL
 function Offer() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -43,7 +48,7 @@ function Offer() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://laravel.myrefera.com/api/delete-offer-page-content/${id}`)
+      .delete(`delete-offer-page-content/${id}`)
       .then(() => {
         const updatedOffers = offers.filter((offer) => offer.id !== id);
         setOffers(updatedOffers);
@@ -87,7 +92,7 @@ function Offer() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-offer-page-content", fd)
+      .post("create-offer-page-content", fd)
       .then((res) => {
         notify("tr");
         console.log(res);
@@ -106,7 +111,7 @@ function Offer() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-offer-page-content", fd)
+      .post("create-offer-page-content", fd)
       .then((res) => {
         notify("tr", " Offer Updated Successfully");
         console.log(res);

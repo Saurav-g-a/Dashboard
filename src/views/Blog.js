@@ -17,6 +17,10 @@ import pen from "./../assets/img/pen.svg";
 import dele from "./../assets/img/trash-can.svg";
 import { blogs } from "api";
 import NotificationAlert from "react-notification-alert";
+const API_URL = process.env.REACT_APP_API_URL
+console.log(API_URL)
+
+axios.defaults.baseURL = API_URL
 
 function Blog() {
   const [blog_post_title, setBlog_post_title] = useState("");
@@ -40,7 +44,7 @@ function Blog() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-blog-page-content", fd)
+      .post("create-blog-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Blog Created Successfully");
@@ -56,7 +60,7 @@ function Blog() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-blog-page-content", fd)
+      .post("create-blog-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Blog Updated Successfully");
@@ -72,7 +76,7 @@ function Blog() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://laravel.myrefera.com/api/delete-blog-page-content/${id}`)
+      .delete(`delete-blog-page-content/${id}`)
       .then(() => {
         // If the deletion is successful, you can update your state or perform any other necessary actions.
         // For example, you can remove the deleted item from the 'offers' state.

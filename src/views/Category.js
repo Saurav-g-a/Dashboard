@@ -17,7 +17,10 @@ import pen from "./../assets/img/pen.svg";
 import dele from "./../assets/img/trash-can.svg";
 import NotificationAlert from "react-notification-alert";
 import { category } from "api";
+const API_URL = process.env.REACT_APP_API_URL
+console.log(API_URL)
 
+axios.defaults.baseURL = API_URL
 function Category() {
 
   const [show, setShow] = useState(false);
@@ -41,7 +44,7 @@ function Category() {
     fd.append("name", name);
     event.preventDefault();
 
-    axios.post("https://laravel.myrefera.com/api/create-category", fd).then((res) => {
+    axios.post("create-category", fd).then((res) => {
       console.log(res);
       notify("tr", "Category Created Successfully");
     });
@@ -53,7 +56,7 @@ function Category() {
     fd.append("id", modal_data["id"]);
     event.preventDefault();
 
-    axios.post("https://laravel.myrefera.com/api/create-category", fd).then((res) => {
+    axios.post("create-category", fd).then((res) => {
       console.log(res);
       notify("tr", "Category Updated Successfully");
       setShow(false);
@@ -64,7 +67,7 @@ function Category() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://laravel.myrefera.com/api/delete-category/${id}`)
+      .delete(`delete-category/${id}`)
       .then(() => {
         const updatedOffers = faq.filter((data) => data.id !== id);
         setFaq(updatedOffers);

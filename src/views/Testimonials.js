@@ -17,7 +17,10 @@ import pen from "./../assets/img/pen.svg";
 import NotificationAlert from "react-notification-alert";
 import dele from "./../assets/img/trash-can.svg";
 import { testimonial } from "api";
+const API_URL = process.env.REACT_APP_API_URL
+console.log(API_URL)
 
+axios.defaults.baseURL = API_URL
 function Testimonials() {
   const [name, setName] = useState("");
   const [text, setText] = useState("");
@@ -40,7 +43,7 @@ function Testimonials() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-testimonial", fd)
+      .post("create-testimonial", fd)
       .then((res) => {
         notify("tr", "Offer Created Successfully");
         console.log(res);
@@ -56,7 +59,7 @@ function Testimonials() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-testimonial", fd)
+      .post("create-testimonial", fd)
       .then((res) => {
         notify("tr", "Offer Updated Successfully");
       });
@@ -65,7 +68,7 @@ function Testimonials() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://laravel.myrefera.com/api/delete-testimonial/${id}`)
+      .delete(`delete-testimonial/${id}`)
       .then(() => {
         const updatedOffers = testimonials.filter((data) => data.id !== id);
         setTestimonials(updatedOffers);

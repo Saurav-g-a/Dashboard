@@ -14,6 +14,10 @@ import {
   Col,
 } from "reactstrap";
 import NotificationAlert from "react-notification-alert";
+const API_URL = process.env.REACT_APP_API_URL
+console.log(API_URL)
+
+axios.defaults.baseURL = API_URL
 function Landing() {
   const [banner_time, setBanner_time] = useState("");
   const [banner_image, setBanner_image] = useState("");
@@ -38,7 +42,7 @@ function Landing() {
     event.preventDefault();
 
     axios
-      .post("https://laravel.myrefera.com/api/create-banner-content", fd)
+      .post("create-banner-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Banner Updated Successfully");
@@ -60,7 +64,7 @@ function Landing() {
     fd.append("id", 1);
 
     axios
-      .post("https://laravel.myrefera.com/api/create-home-page-content", fd)
+      .post("create-home-page-content", fd)
       .then((res) => {
         console.log(res);
         notify("tr", "Landing Page Updated Successfully");
