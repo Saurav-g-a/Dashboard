@@ -127,6 +127,14 @@ function Offer() {
     setModalData({ ...modal_data, [event.target.name]: event.target.value });
   };
 
+  function trimImageName(product_image, maxLength) {
+    if (product_image.length > maxLength) {
+      return product_image.substring(0, maxLength) + '...';
+    }
+    return product_image;
+  }
+
+
   useEffect(() => {
     offer()
       .then((result) => {
@@ -375,7 +383,7 @@ function Offer() {
                               <td>{data.product_title}</td>
                               <td>{data.product_text}</td>
                               <td>{data.link}</td>
-                              <td>{data.product_image}</td>
+                              <td>{trimImageName(data.product_image, 20)}</td>
                               <td>{data.category_id}</td>
                               <td class="d-flex">
                                 <Button
