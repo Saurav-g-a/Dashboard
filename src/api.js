@@ -85,3 +85,12 @@ export const landings = async () => {
     });
   return response;
 };
+
+export const featureProduct = async () => {
+  const response = await axios
+    .get(`get_feature`)
+    .then((res) => {
+      return res.data;
+    });
+  return response;
+};

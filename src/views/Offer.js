@@ -26,6 +26,7 @@ function Offer() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const [product_title, setProduct_title] = useState("");
+  const [link, setLink] = useState("");
   const [product_text, setProduct_text] = useState("");
   const [id, setId] = useState("");
   const [product_image, setProduct_image] = useState(null);
@@ -36,6 +37,7 @@ function Offer() {
     id: "",
     product_title: "",
     category_id: "",
+    link: "",
     product_text: "",
   });
   const notificationAlert = React.useRef();
@@ -86,6 +88,7 @@ function Offer() {
   const handleSubmit = (event) => {
     const fd = new FormData();
     fd.append("product_title", product_title);
+    fd.append("link", link);
     fd.append("product_text", product_text);
     fd.append("product_image", product_image);
     fd.append("category_id", selectedCategory);
@@ -104,6 +107,7 @@ function Offer() {
     const fd = new FormData();
     fd.append("product_title", modal_data["product_title"]);
     fd.append("product_text", modal_data["product_text"]);
+    fd.append("link", modal_data["link"]);
     fd.append("product_image", product_image);
     fd.append("category_id", modal_data["category_id"]);
     fd.append("id", modal_data["id"]);
@@ -190,7 +194,7 @@ function Offer() {
                     ))}
                   </select>
                 </Col>
-                <Col className="px-4" md="12">
+                <Col md="6">
                   <FormGroup>
                     <label>Offer Image</label>
                     <Input
@@ -208,6 +212,19 @@ function Offer() {
                         <img src={modal_data.product_image} width="100px" />
                       )}{" "}
                     </span>
+                  </FormGroup>
+                </Col>
+                <Col className="" md="6">
+                  <FormGroup>
+                    <label>Offer Link</label>
+                    <Input
+                      placeholder="Add Product Link"
+                      name="link"
+                      defaultValue={modal_data.link} // Set the value from state
+                      onChange={handleDataChange}
+                      type="text"
+                      required
+                    />
                   </FormGroup>
                 </Col>
                 <Col className="px-4" md="12">
@@ -280,7 +297,7 @@ function Offer() {
                             </select>
                           </FormGroup>
                         </Col>
-                        <Col className=" px-2" md="12">
+                        <Col className=" px-2" md="6">
                           <FormGroup>
                             <label>Image</label>
                             <Input
@@ -290,6 +307,17 @@ function Offer() {
                                 setProduct_image(e.target.files[0])
                               }
                               type="file"
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col className=" px-2" md="6">
+                          <FormGroup>
+                            <label>Offer Link</label>
+                            <Input
+                              placeholder="Add Product Link"
+                              name="link"
+                              onChange={(e) => setLink(e.target.value)}
+                              type="text"
                             />
                           </FormGroup>
                         </Col>
@@ -334,6 +362,7 @@ function Offer() {
                         <tr>
                           <th>Title</th>
                           <th>Description</th>
+                          <th>Link</th>
                           <th>Image</th>
                           <th>Category</th>
                           <th>Action</th>
@@ -345,6 +374,7 @@ function Offer() {
                             <tr key={index}>
                               <td>{data.product_title}</td>
                               <td>{data.product_text}</td>
+                              <td>{data.link}</td>
                               <td>{data.product_image}</td>
                               <td>{data.category_id}</td>
                               <td class="d-flex">

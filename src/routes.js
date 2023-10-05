@@ -7,6 +7,8 @@ import Testimonials from "views/Testimonials";
 import Blog from "views/Blog";
 import Event from "views/Event";
 import Offer from "views/Offer";
+import FeatureProduct from "views/FeatureProduct";
+
 
 var routes = [
   {
@@ -35,6 +37,13 @@ var routes = [
     name: "Offer",
     icon: "nc-icon nc-caps-small",
     component: <Offer />,
+    layout: "/admin",
+  },
+  {
+    path: "/FeatureProduct",
+    name: "Feature Product",
+    icon: "nc-icon nc-caps-small",
+    component: <FeatureProduct />,
     layout: "/admin",
   },
   {
